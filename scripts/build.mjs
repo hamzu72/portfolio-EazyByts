@@ -39,11 +39,11 @@ const esbuildOpts = {
 
 if (isProd) {
   await esbuild.build(esbuildOpts);
+  console.log('✅ Production build complete. Output in /dist');
 } else {
   const ctx = await esbuild.context(esbuildOpts);
   await ctx.watch();
 
-  // ✅ Use Render-compatible PORT and 0.0.0.0 host
   const PORT = process.env.PORT || 8000;
   const HOST = '0.0.0.0';
 
@@ -53,5 +53,5 @@ if (isProd) {
     host: HOST,
   });
 
-  console.log(`Server is running at: http://${HOST}:${port}`);
+  console.log(`🚀 Dev server running at: http://${HOST}:${port}`);
 }
